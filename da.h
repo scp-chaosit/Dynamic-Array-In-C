@@ -33,7 +33,6 @@ Array *da_constructor (long n, const char *dataType);
 Array *da_setDataType (Array *arr, const char *dataType);
 Array *da_allocateArr (Array *arr);
 Array *da_setLength (Array *arr, long n);
-Array *da_map (Array *arr, Array *(*func)(Array *));
 void da_freeArray (Array *arr);
 
 // sets everything up; allocates an array of type dataType
@@ -146,13 +145,6 @@ Array *da_setLength (Array *arr, long n) {
     
     // reallocating an array
     da_allocateArr (arr);
-
-    return arr;
-}
-
-Array *da_map (Array *arr, Array *(*func)(Array *)) {
-    if (arr != NULL)
-        (*func)(arr);
 
     return arr;
 }

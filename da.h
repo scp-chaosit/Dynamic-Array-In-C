@@ -5,7 +5,8 @@
 typedef enum {
     CHAR, SHORT, INT,
     LONG, LONG_LONG,
-    FLOAT, DOUBLE, _NULL
+    FLOAT, DOUBLE,
+    _NULL
 } DataType;
 
 typedef struct {

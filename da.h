@@ -9,7 +9,7 @@ typedef enum {
     _NULL
 } DataType;
 
-typedef struct {
+typedef struct Array {
     // storing a data type
     DataType type, prevType;
 
@@ -26,18 +26,18 @@ typedef struct {
 
     // length of an array
     long length;
-} Array;
+} array_t;
 
-//data types: char, short, int, long, long long, float, double
-Array *da_constructor (long n, const char *dataType);
-Array *da_setDataType (Array *arr, const char *dataType);
-Array *da_allocateArr (Array *arr);
-Array *da_setLength (Array *arr, long n);
-void da_freeArray (Array *arr);
+// data types: char, short, int, long, long long, float, double
+array_t *da_constructor (long n, const char *dataType);
+array_t *da_setDataType (array_t *arr, const char *dataType);
+array_t *da_allocateArr (array_t *arr);
+array_t *da_setLength (array_t *arr, long n);
+void da_freeArray (array_t *arr);
 
 // sets everything up; allocates an array of type dataType
-Array *da_constructor (long n, const char *dataType) {
-    Array *arr = (Array *)malloc (sizeof (Array));
+array_t *da_constructor (long n, const char *dataType) {
+    array_t *arr = (array_t *)malloc (sizeof (array_t));
 
     if (n < 0)
         n = ~n+1;
@@ -57,7 +57,7 @@ Array *da_constructor (long n, const char *dataType) {
 
 
 // sets data type on it's own, with no need to recreate a pointer; realloctes array
-Array *da_setDataType (Array *arr, const char *dataType) {
+array_t *da_setDataType (array_t *arr, const char *dataType) {
     if (arr == NULL)
         return arr;
 
@@ -90,7 +90,7 @@ Array *da_setDataType (Array *arr, const char *dataType) {
 }
 
 // allocates bytes for an array (matching specific data type)
-Array *da_allocateArr (Array *arr) {
+array_t *da_allocateArr (array_t *arr) {
     if (arr == NULL)
         return arr;
 
@@ -133,7 +133,7 @@ Array *da_allocateArr (Array *arr) {
 }
 
 // will change the length of an array; REALLOCATES AN ARRAY
-Array *da_setLength (Array *arr, long n) {
+array_t *da_setLength (array_t *arr, long n) {
     if (arr == NULL)
         return arr;
 
@@ -149,7 +149,7 @@ Array *da_setLength (Array *arr, long n) {
     return arr;
 }
 
-void da_freeArray (Array *arr) {
+void da_freeArray (array_t *arr) {
     switch (arr->prevType) {
         case CHAR:
             free ((void *)arr->data.charArray);

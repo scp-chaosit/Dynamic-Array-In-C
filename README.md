@@ -31,7 +31,7 @@ for (long i = 0; i < arr->length; ++i) {
 printf ("\n");
 ```
 
-## so, now I'm gonna talk about the setLength function pointer in the Array structure (from now on I'm referencing them as methods)<br>
+## so, now I'm gonna talk about the function pointers in the Array structure (from now on I'm referencing them as methods)<br>
 
 the setLength method is a function pointer that takes three arguments:<br>
 array (which we will later reallocate), length of the current array (to change it), length to set (basically the new array length)<br>
@@ -42,7 +42,7 @@ okay, this thing is pretty important too - if you'll set your new length to be n
 the next thing is allocateArr method - it is used to, well, allocate an array by the size of void\* multiplied by the number of elements<br>
 takes the array (of void** data type, or simply the array type of Array structure), and the length of an array (better use the Array structure property, or may have the heap overflow)
 
-also, we have a freeArray method - will take the array\_t pointer, free's it, and set's the pointer to NULL<br>
+also, we have a freeArray function - will take the array\_t pointer, free's it, and set's the pointer to NULL<br>
 it is here because, well? it may get pretty boring writing: `free (arr); arr = NULL;`, so, why not?
 
 ## bye

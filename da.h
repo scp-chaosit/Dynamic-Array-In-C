@@ -1,3 +1,6 @@
+#include <stddef.h>
+#include <stdlib.h>
+
 typedef struct Array {
     // length of an array
     long length;

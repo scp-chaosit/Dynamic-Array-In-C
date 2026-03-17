@@ -1,6 +1,3 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
 #include "da.h"
 
 // sets everything up; allocates an array (no data will be written there)

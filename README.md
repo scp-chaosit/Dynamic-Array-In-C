@@ -3,7 +3,17 @@ tried to create mine dynamic array version in pure C (with standart of C99), and
 
 I'll be happy to read every single pull request, so feel free to test this header file and send me some things that I can do, so my "project" will be even better
 
-okay, no time...
+okay, let's begin
+
+# including
+after using `git clone this-repo`, you will have a directory with this project, but what is next?<br>
+in your `.c` file, you need to type `include "path/to/func_da.c"` - this will include the `.c` and `.h` files contents so you will be able to use the projects functions
+
+# what is a project structure?
+README.md and LICENSE files are here for github, I'm not gonna describe why they are here XD
+
+so, the `func_da.c` is a file that contains functions definition<br>
+the `da.h` file (that I was using for the whole time before this update) has the structure and functions declarations - wanna build something on your own - include `da.h`, or just copy the `da.h` structure code and do whatever you want :D
 
 ## how everything does work?
 WARNING: YOUR ARRAY SHOULD BE A POINTER
@@ -31,10 +41,10 @@ for (int i = 0; i < arr->length; ++i) {
 printf ("\n");
 ```
 
-## so, now I'm gonna talk about the function pointers in the Array structure (from now on I'm referencing them as methods)<br>
+## so, now I'm gonna talk about functions in my project
 
 the setLength function is a function that takes two arguments:<br>
-array\_t pointer(which we will later reallocate), new arrat length to set
+array\_t pointer (which we will later reallocate), new array length to set
 
 the next thing is allocateArr function - it is used to, well, allocate an array by the size of void\* multiplied by the number of elements<br>
 takes the array\_t pointer to allocate an array

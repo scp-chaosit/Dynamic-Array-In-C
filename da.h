@@ -1,15 +1,28 @@
-#include <stddef.h>
 #include <stdlib.h>
+#include <stddef.h>
+#include <assert.h>
 
-typedef struct Array {
-    // length of an array
-    long length;
+typedef struct {
+        size_t count, capacity;
+} Header;
 
-    // array
-    void **array;
-} array_t;
+#define da_push(arr, el) do {                                                        \
+        if(arr == NULL) { Header* hdr = malloc(sizeof(*(arr)) * 2 + sizeof(Header)); \
+                hdr->count = 0; hdr->capacity = 2; arr = (void*)(hdr + 1); }         \
+        Header* hdr = (Header*)(arr) - 1;                                            \
+        if(hdr->count >= hdr->capacity) { hdr->capacity *= 2;                        \
+                hdr = realloc(hdr, sizeof(*(arr)) * hdr->capacity + sizeof(Header)); \
+                (arr) = (void*)(hdr + 1); }                                          \
+        (arr)[hdr->count++] = (el);                                                  \
+} while(0)
 
-array_t *da_constructor (long n);
-void da_setLength (array_t *arr, long newLength);
-void da_allocateArr (array_t *arr);
-void da_freeArray (array_t *arr);
+#define da_pop(arr) do {                          \
+        if(arr != NULL) {                         \
+                Header* hdr = (Header*)(arr) - 1; \
+                --hdr->count;                     \
+        }                                         \
+} while(0)
+
+#define da_length(arr) (((Header*)(arr)) - 1)->count
+
+#define da_free(arr) free((Header*)(arr) - 1)

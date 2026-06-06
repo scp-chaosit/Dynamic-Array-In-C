@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stddef.h>
-#include <assert.h>
 
 typedef struct {
         size_t count, capacity;

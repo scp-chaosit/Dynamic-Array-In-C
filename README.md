@@ -1,23 +1,22 @@
 # dynamic array realization in C (std=c99)
-## (guys dont mind me my english sucks so much)
+## guys dont mind me my english sucks so much :\_)
 
-tried to create mine dynamic array version in pure C (with standart of C99), and this is what I created
+i tried to create my own dynamic array version in pure C (with the C99 standart), and this is what i created
 
-I'll be happy to read every single pull request, so feel free to test this header file and send me some things that I can do, so my "project" will be even better
+i would be happy to review any pull requests, so feel free to test this header file and suggest improvements to make this project even better
 
-okay, let's begin
+let's begin
 
 # including
-after using `git clone this-repo`, you will have a directory with this project, but what is next?<br>
-in your `.c` file, you need to type `include "path/to/da.h"` - this will include the `.h` file contents so you will be able to use the projects functions
+after using `git clone this-repo`, you will have a directory containing this project<br>
+next, in your `.c` file, you need to include the header file by typing `#include "path/to/da.h"`<br>
+this will include the contents of the `.h` file, allowing you to use the projects functions
 
 # what is a project structure?
-README.md and LICENSE files are here for github, I'm not gonna describe why they are here XD
-
-so, the `da.h` is a file that contains Header structure and macro functions<br>
+so, the `da.h` file contains the Header structure and macro functions<br>
 
 ## how everything does work?
-I'll describe how everything do works:
+i'll describe how everything works:
 
 the structure, Header, is a data structure that holds it's count (the length in size_t), and the capacity (also in size_t)
 
